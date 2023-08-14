@@ -1,0 +1,22 @@
+services:
+  sismun_app:
+    container_name: sisMunApp
+    hostname: sisMunApp
+    build:
+      context: ./
+      dockerfile: ./dockerfile
+      target: react_native
+    volumes:
+      - ${APP_DIRECTORY}:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - ${SERVER_PORT_RN}:${SERVER_PORT_RN}
+      - ${SERVER_PORT_1}:${SERVER_PORT_1}
+      - ${SERVER_PORT_2}:${SERVER_PORT_2}
+      - ${SERVER_PORT_3}:${SERVER_PORT_3}
+      - ${SERVER_PORT_4}:${SERVER_PORT_4}
+      - 3000:3000
+    # command: yarn run start:dev
+    command: sleep infinity
+    env_file:
+      - .env

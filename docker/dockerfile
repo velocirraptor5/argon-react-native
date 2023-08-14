@@ -1,0 +1,5 @@
+FROM node As react_native
+
+WORKDIR /usr/src/app
+
+COPY . .
